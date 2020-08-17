@@ -1,0 +1,58 @@
+<nav class="navbar nav-expand-lg">
+    <div class="col-lg-8">
+        <div class="row">
+            <img src="assets/svg/file.svg" style="width: 50px; height: 50px;">
+            <p>{{title}}</p>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <form>
+            <mat-form-field appearance="fill">
+                <mat-label>Yapılacaklar</mat-label>
+                <input matInput #inputData placeholder="Ekle">
+            </mat-form-field>
+            <button mat-button color="accent" style="background-color:palevioletred; color:white"
+                (click)="gorevEkle(inputData)">Ekle</button>
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <h2> Yapılacaklar</h2>
+            <div cdkDropList #yapilacaklar="cdkDropList" [cdkDropListConnectedTo]="[yapimAsamasinda]"
+                [cdkDropListData]="data.pendings" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of data.pendings" cdkDrag><img class="icons"
+                        src="../../../assets/svg/clock.svg">{{item.todo}}<img (click)="removeToDo(data.pendings,item)"
+                        class="icons" src="../../../assets/svg/remove.svg"></div>
+
+                <div class="text-center pt-3" *ngIf="data.pendings?.length === 0"><small>Yapılacak iş yok </small></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <h2> Yapım Aşamasında Olanlar</h2>
+            <div cdkDropList #yapimAsamasinda="cdkDropList" [cdkDropListConnectedTo]="[yapilacaklar,tamamlanan]"
+                [cdkDropListData]="data.inProgress" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of data.inProgress" cdkDrag><img class="icons"
+                        src="../../../assets/svg/processing.svg">{{item.todo}}<img
+                        (click)="removeToDo(data.inProgress,item)" class="icons" src="../../../assets/svg/remove.svg">
+                </div>
+                <div class="text-center pt-3" *ngIf="data.inProgress?.length === 0"><small>Herhangi bir işlem
+                        yapılmıyor.</small></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <h2> Tamamlananlar</h2>
+            <div cdkDropList #tamamlanan="cdkDropList" [cdkDropListConnectedTo]="[yapimAsamasinda]"
+                [cdkDropListData]="data.done" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of data.done" cdkDrag><img class="icons"
+                        src="../../../assets/svg/like.svg">{{item.todo}}<img (click)="removeToDo(data.done,item)"
+                        class="icons" src="../../../assets/svg/remove.svg"></div>
+
+                <div class="text-center pt-3" *ngIf="data.done?.length === 0"><small>Tamamlanan iş yok!</small></div>
+            </div>
+        </div>
+
+    </div>
+</div>

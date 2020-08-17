@@ -1,0 +1,4 @@
+{
+    "/todo/:pendings": "/posts?pendings=:pendings"
+    
+  }
