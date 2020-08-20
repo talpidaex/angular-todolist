@@ -1,0 +1,8 @@
+<form class="form">
+        <mat-form-field appearance="fill">
+            <mat-label>Yapılacaklar</mat-label>
+            <input matInput #inputData placeholder="Ekle">
+        </mat-form-field>
+        <button title="Ekle" mat-button color="accent"
+            (click)="addToDo(inputData)">Ekle</button>
+</form>

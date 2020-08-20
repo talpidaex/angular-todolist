@@ -1,0 +1,19 @@
+$color : #900C3F;
+@mixin backgroundColor {
+    background: rgb(207,211,223);
+    background: linear-gradient(90deg, rgba(207,211,223,1) 82%, rgba(226,235,240,1) 100%);
+ }
+ form {
+    mat-form-field {
+        color :  $color ;
+        ::ng-deep .mat-form-field-flex{
+            border-radius: 30px 5px;
+            @include backgroundColor();
+        }
+    }
+    button {
+        background-color:palevioletred; 
+        color:white;
+        margin-left: 2rem;
+    }
+}

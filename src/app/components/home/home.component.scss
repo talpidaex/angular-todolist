@@ -1,46 +1,11 @@
 
-nav {
-    justify-content: stretch;
-    height: 150px;
-    background-image: url("../../../assets/svg/cool-background.svg");
-    .row {
-        display: ruby-base;
-    }
-    img {
-        height: 50px;
-        margin : 2rem;
-    }
-    p {
-      margin : 45px 0;
-       text-align: center;
-       font-size: 20px;
-    }
-    input{
-        margin-right: 5px;
-       color: white;
-    }
-}
-
 h2 {
   text-align: center;
   font-family: cursive;
 }
-.container {
+.page-content {
     margin-top: 3rem;
 }
-.card-images {
-    height: 20px;
-    width: 20px ;
-    margin-right: 1rem;
-}
-.example-container {
-    width: 400px;
-    max-width: 100%;
-    margin: 0 25px 25px 0;
-    display: inline-block;
-    vertical-align: top;
-  }
-  
   .example-list {
     border-radius: 1.5rem;
     box-shadow: 5px 10px rgba(0, 0, 0, 0.12);
@@ -67,6 +32,18 @@ h2 {
     background: white;
     font-size: 17px;
     font-family: cursive;
+      .order-todos{
+        justify-content: space-evenly;
+      }
+    .edit-input {
+        text-align: center;
+        margin : 10px 2px;
+        padding :4px;
+    }
+     #kaydet,#iptal-et{
+      margin: 2rem;
+    }
+
   }
   
   .cdk-drag-preview {

@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ApiService } from '../../services/api.service';
-import { NgForm } from '@angular/forms';
-import { element } from 'protractor';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,7 +10,7 @@ import { element } from 'protractor';
 })
 export class HomeComponent implements OnInit {
   data  = {pendings:[],inProgress:[],done:[]};
-  title: string = "Kafein todolist"
+
   constructor(private apiService: ApiService) { }
   //data = {pendings:[],inProgress:[],done:[]}
   ngOnInit(): void {
@@ -30,26 +29,13 @@ export class HomeComponent implements OnInit {
       this.updateToDo();
     }
   }
-  gorevEkle(input) {
-    const test = {
-      todo: input.value
-    }
-    this.apiService.addToDo(test).subscribe(res => {   
-      console.log(res);
-      this.getAllToDo();
-      input.value = '';
-    },(err)=>{
-      console.log(err);
-    });
-  }
 
   getAllToDo() {
     this.apiService.getToDo().subscribe((res:any) => {
           //this.data = response
          Object.keys(res).forEach((key)=>{
             this.data[key] = res[key];
-            console.log(this.data[key]);
-            
+            console.log(this.data[key]); 
          });
     },(err)=>{
         console.log(err);
@@ -67,22 +53,33 @@ export class HomeComponent implements OnInit {
 
     })
   }
-
   removeToDo(arr,obj){
-    arr.pop(obj)
+    /* önce array indexini bul ve 1 adet öğe cıkart => splice */
+    let index = arr.indexOf(obj);
+    arr.splice(index,1);
     this.apiService.updateToDo(this.data).subscribe(res => {
-      console.log("Remove Başarılı!");
-
-    }, err => {
+    console.log("Remove Başarılı!");
+   }, err => {
       console.log(err);
-
     })
-    
-    
-  //    this.apiService.removeToDo(name).subscribe(res=>{
-  //        console.log(obj);
-  //    });
-  //
+ }
+
+ editToDo(arr,obj){
+      const editText  = {
+        todo : obj.todo
+      }
+    var foundIndex = arr.findIndex(x => x.todo == obj.todo);
+    arr[foundIndex] = editText;
+    this.apiService.updateToDo(this.data).subscribe(res =>{
+        console.log("Edit Başarılı!");
+     },(err)=> {
+        console.log(err);
+     })
+
+ }
+ report(){
+   console.log(this.data.done);
+   
  }
 
 }
