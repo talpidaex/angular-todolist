@@ -6,7 +6,8 @@ import { HomeComponent } from './components/home/home.component';
 import { DynamicTodoComponent } from './components/dynamic-todo/dynamic-todo.component';
 
 const routes: Routes = [
-  {path:'',component:HomeComponent},
+  {path:'todo',component:HomeComponent},
+  {path:'',redirectTo:"todo",pathMatch:'full'},
   {path:':type',component:DynamicTodoComponent},
   {path:'table', component:TableComponent}
 ];
