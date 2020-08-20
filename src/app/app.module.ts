@@ -43,7 +43,7 @@ import { LogoRoutesComponent } from './components/header/logo-routes/logo-routes
     MatPaginatorModule
   ],
   providers: [{
-    provide : 'apiUrl' ,useValue :"http://localhost:3001/todo"
+    provide : 'apiUrl' ,useValue :"https://kafein-todolist.herokuapp.com/todo"
   }],
   bootstrap: [AppComponent]
 })
