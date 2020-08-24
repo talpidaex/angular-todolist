@@ -8,6 +8,7 @@
             <a title="Yapılacaklar" routerLink="/todo-list">Yapılacaklar</a>
             <a title="Yapılıyor" routerLink="/in-progress-list">Yapılıyor</a>
             <a title="Tamamlananlar" routerLink="/completed-list">Tamamlananlar</a>
+            <a title="ÇıkışYap" (click)='logOut()'*ngIf="isLoggedin()==true">Çıkış yap</a>
         </div>
     </div>
 </div>

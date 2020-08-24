@@ -16,4 +16,7 @@ $color : #900C3F;
         color:white;
         margin-left: 2rem;
     }
+    @media(max-width: 768px){
+        margin-top: 6rem;
+    }
 }
