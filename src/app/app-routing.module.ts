@@ -10,7 +10,7 @@ const routes: Routes = [
   {path : "todo", component:HomeComponent,canActivate:[LoginGuard]},
   {path:'login',component:LoginComponent},
   {path : "",redirectTo : 'todo',pathMatch : 'full'},
-  {path:":type",component:DynamicTodoComponent},
+  {path:":type",component:DynamicTodoComponent,canActivate:[LoginGuard]},
   {path:'table', component:TableComponent},
   {path:"**",redirectTo:"todo"}
 ];

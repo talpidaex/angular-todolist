@@ -18,14 +18,23 @@ export class LogoRoutesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  isLoggedin() {
+  isLoggedin():boolean {
     return this.accountService.isLoggedIn();
   }
 
-  logOut() {
+  logOut():void {
     this.accountService.logOut();
     this.alertService.successMessage("Çıkış başarılı!");
     this.router.navigate(["login"]);
+  }
+
+  returnHomePage():void{
+
+       if(this.isLoggedin()){
+           this.router.navigate(["todo"]);
+      }else {
+            this.alertService.errorMessage("Hay aksi..")
+        }
   }
 
 }
