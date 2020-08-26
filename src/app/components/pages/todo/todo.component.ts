@@ -1,14 +1,14 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { ApiService } from '../../services/api.service';
+import { ApiService } from '../../../services/api.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-todo',
+  templateUrl: './todo.component.html',
+  styleUrls: ['./todo.component.scss'],
   providers: [ApiService]
 })
-export class HomeComponent implements OnInit {
+export class TodoComponent implements OnInit {
   data  = {pendings:[],inProgress:[],done:[]};
 
   constructor(private apiService: ApiService) { }
@@ -77,6 +77,9 @@ export class HomeComponent implements OnInit {
      })
 
  }
+ onEnter(value: string) { 
+      alert(value)
+  }
  report(){
    console.log(this.data.done);
    

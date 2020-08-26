@@ -2,9 +2,11 @@
     <div class="col-md-12 logo">
         <a title="Anasayfa" (click)='returnHomePage()'><img alt="file-icon" src="assets/svg/file.svg"></a>
         <h1>{{title}}</h1>
+
     </div>
     <div class="col-md-12 left-side-route">
         <div class="row routeLinks">
+            <a title="Dashboard" routerLink="/dashboard">Anasayfa</a>
             <a title="Yapılacaklar" routerLink="/todo-list">Yapılacaklar</a>
             <a title="Yapılıyor" routerLink="/in-progress-list">Yapılıyor</a>
             <a title="Tamamlananlar" routerLink="/completed-list">Tamamlananlar</a>

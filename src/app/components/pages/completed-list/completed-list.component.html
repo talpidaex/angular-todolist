@@ -1,0 +1,40 @@
+<nav>
+  <div class="row nav-content-page">
+    <div class="col-md-6 left-side">
+      <app-logo-routes></app-logo-routes>
+    </div>
+  </div>
+</nav>
+<div class="container table">
+  <table class="table table-striped table-list">
+    <thead class="thead">
+      <tr>
+        <th scope="col">Todos<img src="assets/svg/file.svg"></th>
+        <th scope="col">Yapılacaklar<img src="assets/svg/clock.svg"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data.done;let indexOfelement=index;">
+        <th scope="row">{{indexOfelement+1}}</th>
+        <td class="row">{{item.todo}}
+          <div class="icon-group">
+            <img title="edit-icon" class="icons" src="assets/svg/edit-icon.svg" alt="edit-icon"
+              (click)="item.canEditCode = true">
+            <img title="remove-icon" class="icons" src="assets/svg/remove.svg" alt="remove-icon"
+            (click)="removeToDo(data.done,item)"
+            >
+          </div>
+        </td>
+        <div class="row edit-row">
+          <ng-template [ngIf]=item.canEditCode>
+            <input class="edit-input" (keyup.enter)="editToDo(data.done,item)" *ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">
+            <div class="row icon-group">
+              <small id="kaydet" (click)="editToDo(data.done,item)">Kaydet</small>
+              <small id="iptal-et" (click)="item.canEditCode=false">İptal Et</small>
+            </div>
+          </ng-template>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>

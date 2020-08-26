@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DynamicTodoComponent } from './dynamic-todo.component';
+import { InProgressListComponent } from './in-progress-list.component';
 
-describe('DynamicTodoComponent', () => {
-  let component: DynamicTodoComponent;
-  let fixture: ComponentFixture<DynamicTodoComponent>;
+describe('InProgressListComponent', () => {
+  let component: InProgressListComponent;
+  let fixture: ComponentFixture<InProgressListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DynamicTodoComponent ]
+      declarations: [ InProgressListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DynamicTodoComponent);
+    fixture = TestBed.createComponent(InProgressListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

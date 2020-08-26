@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeComponent } from '../../home/home.component';
+import { TodoComponent } from '../../pages/todo/todo.component';
 import { ApiService } from '../../../services/api.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ApiService } from '../../../services/api.service';
 export class InputComponent implements OnInit {
 
   constructor(private apiService : ApiService,
-    private homeComponent : HomeComponent) { }
+    private todoComponent : TodoComponent) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +22,7 @@ export class InputComponent implements OnInit {
     }
     this.apiService.addToDo(test).subscribe(res => {   
       console.log(res);
-      this.homeComponent.getAllToDo();
+      this.todoComponent.getAllToDo();
       input.value = '';
     },(err)=>{
       console.log(err);

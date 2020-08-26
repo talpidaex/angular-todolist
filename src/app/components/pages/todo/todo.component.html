@@ -1,4 +1,5 @@
 <app-header></app-header>
+
 <div class="container page-content">
     <div class="row">
         <div class="col-lg-4">
@@ -16,7 +17,7 @@
                                 src="assets/svg/remove.svg">
                         </div>
                         <ng-template [ngIf]=item.canEditCode>
-                            <input class="edit-input" *ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">
+                            <input class="edit-input" (keyup.enter)="editToDo(data.pendings,item)" *ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">
                             <small id="kaydet" (click)="editToDo(data.pendings,item)">Kaydet</small>
                             <small id="iptal-et" (click)="item.canEditCode=false">İptal Et</small>
                         </ng-template>
@@ -41,7 +42,7 @@
                                 src="assets/svg/remove.svg">
                         </div>
                         <ng-template [ngIf]=item.canEditCode>
-                            <input class="edit-input" *ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">
+                            <input class="edit-input" (keyup.enter)="editToDo(data.inProgress,item)" *ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">
                             <small id="kaydet" (click)="editToDo(data.inProgress,item)">Kaydet</small>
                             <small id="iptal-et" (click)="item.canEditCode=false">İptal Et</small>
                         </ng-template>
@@ -66,7 +67,7 @@
                                 src="assets/svg/remove.svg">
                         </div>
                         <ng-template [ngIf]=item.canEditCode>
-                            <input class="edit-input" *ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">
+                            <input class="edit-input" (keyup.enter)="editToDo(data.done,item)"*ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">
                             <small id="kaydet" (click)="editToDo(data.done,item)">Kaydet</small>
                             <small id="iptal-et" (click)="item.canEditCode=false">İptal Et</small>
                         </ng-template>

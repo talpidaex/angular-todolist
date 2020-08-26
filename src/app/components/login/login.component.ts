@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
       this.accountService.login(this.user);
       if(this.accountService.isLoggedIn()){
-          this.router.navigate(["todo"]);
+          this.router.navigate(["dashboard"]);
       }else {
         this.alertService.errorMessage("Giriş Başarısız,tekrar deneyiniz!");
       }

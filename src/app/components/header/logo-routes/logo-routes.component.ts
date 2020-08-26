@@ -31,7 +31,7 @@ export class LogoRoutesComponent implements OnInit {
   returnHomePage():void{
 
        if(this.isLoggedin()){
-           this.router.navigate(["todo"]);
+           this.router.navigate(["dashboard"]);
       }else {
             this.alertService.errorMessage("Hay aksi..")
         }

@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TableComponent } from './components/table/table.component';
-import { HomeComponent } from './components/home/home.component';
-import { DynamicTodoComponent } from './components/dynamic-todo/dynamic-todo.component';
+import { TodoComponent } from './components/pages/todo/todo.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginGuard } from './components/login/login.guard';
+import { TodoListComponent } from './components/pages/todo-list/todo-list.component';
+import { InProgressListComponent } from './components/pages/in-progress-list/in-progress-list.component';
+import { CompletedListComponent } from './components/pages/completed-list/completed-list.component';
 
 const routes: Routes = [
-  {path : "todo", component:HomeComponent,canActivate:[LoginGuard]},
-  {path:'login',component:LoginComponent},
-  {path : "",redirectTo : 'todo',pathMatch : 'full'},
-  {path:":type",component:DynamicTodoComponent,canActivate:[LoginGuard]},
-  {path:'table', component:TableComponent},
-  {path:"**",redirectTo:"todo"}
+  {path : "dashboard", component:TodoComponent,canActivate:[LoginGuard]},
+  {path : "todo-list", component:TodoListComponent,canActivate:[LoginGuard]},
+  {path : "in-progress-list", component:InProgressListComponent,canActivate:[LoginGuard]},
+  {path : "completed-list", component:CompletedListComponent,canActivate:[LoginGuard]},
+  {path :'login',component:LoginComponent},
+  {path: "",redirectTo:"dashboard",pathMatch:"full"},
+  {path : "**" ,redirectTo:"todo"},
+
 ];
 
 @NgModule({

@@ -8,9 +8,11 @@ $color : #900C3F;
     justify-items: center;
 }
 .logo {
+   
     @include flexCenter();
     margin : 48px 20px 10px;
     img {
+        cursor: pointer;
         height: 60px;
     }
     h1 {
@@ -23,7 +25,7 @@ $color : #900C3F;
     font-size:17px;
     @include flexCenter();
     .routeLinks a{
-    
+        cursor: pointer;
          color:#5393e7;
          padding : 1rem;
          margin-top: -13px;
