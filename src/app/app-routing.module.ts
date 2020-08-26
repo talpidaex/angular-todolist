@@ -8,7 +8,7 @@ import { InProgressListComponent } from './components/pages/in-progress-list/in-
 import { CompletedListComponent } from './components/pages/completed-list/completed-list.component';
 
 const routes: Routes = [
-  {path : "dashboard", component:TodoComponent},
+  {path : "dashboard", component:TodoComponent,canActivate:[LoginGuard]},
   {path : "todo-list", component:TodoListComponent,canActivate:[LoginGuard]},
   {path : "in-progress-list", component:InProgressListComponent,canActivate:[LoginGuard]},
   {path : "completed-list", component:CompletedListComponent,canActivate:[LoginGuard]},
