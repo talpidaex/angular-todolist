@@ -33,16 +33,27 @@ h2 {
     font-size: 17px;
     font-family: cursive;
       .order-todos{
-       
-        justify-content: space-evenly;
+        display: block;
+        justify-content: center;
+        text-align: center;
+        #clock-icon,#process-icon,#done-icon {
+          float: left;
+        }
+        .operation-icons {
+          float: right;
+          img {
+            margin : 0 5px;
+          }
+        }
       }
     .edit-input {
         text-align: center;
         margin : 10px 2px;
-        padding :4px;
+        padding :4px;   
     }
      #kaydet,#iptal-et{
       margin: 2rem;
+      cursor: pointer;
     }
 
   }

@@ -15,17 +15,24 @@ nav {
             } 
         }
         td {
+            display: block;
             justify-content: space-evenly;
                 img {
                     margin : 0 20px;
                 }
         }
+        .icon-group {
+            margin-right: 10rem;
+            float: right;
+        }
         .icons {
+
             cursor: pointer;
             height: 30px;
             width : 0 auto;
           }
              .edit-row {
+                 display: inline;
               justify-content: space-around;
               input {
                   color: #494D5F;
@@ -36,13 +43,13 @@ nav {
                   
               }
               .icon-group {
-                  position: relative;
-                  right: 90px;
-                }
+                
               small {
+                  cursor: pointer;
                 font-size: 15px;
                 margin : 5px 20px;
             }
+        }
           }
         }
 }

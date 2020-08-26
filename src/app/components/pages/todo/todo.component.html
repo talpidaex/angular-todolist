@@ -9,12 +9,14 @@
                 <div class="example-box" *ngFor="let item of data.pendings" cdkDrag>
                     <div class="container">
                         <div class="row order-todos">
-                            <img class="icons" alt="pendings-icon" src="assets/svg/clock.svg">
-                            {{item.todo}}
+                            <img id="clock-icon" class="icons" alt="pendings-icon" src="assets/svg/clock.svg">
+                            <span>{{item.todo}}</span>
+                            <div class="operation-icons">
                             <img class="icons" (click)="item.canEditCode = true" src="assets/svg/edit-icon.svg"
                                 alt="edit-icon">
                             <img (click)="removeToDo(data.pendings,item)" alt="remove-icon" class="icons"
                                 src="assets/svg/remove.svg">
+                            </div>
                         </div>
                         <ng-template [ngIf]=item.canEditCode>
                             <input class="edit-input" (keyup.enter)="editToDo(data.pendings,item)" *ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">
@@ -34,12 +36,14 @@
                 <div class="example-box" *ngFor="let item of data.inProgress" cdkDrag>
                     <div class="container">
                         <div class="row order-todos">
-                            <img class="icons" alt="pendings-icon" src="assets/svg/processing.svg">
+                            <img id="process-icon" class="icons" alt="pendings-icon" src="assets/svg/processing.svg">
                             {{item.todo}}
+                            <div class="operation-icons">
                             <img class="icons" (click)="item.canEditCode = true" src="assets/svg/edit-icon.svg"
                                 alt="edit-icon">
                             <img (click)="removeToDo(data.inProgress,item)" alt="remove-icon" class="icons"
                                 src="assets/svg/remove.svg">
+                            </div>
                         </div>
                         <ng-template [ngIf]=item.canEditCode>
                             <input class="edit-input" (keyup.enter)="editToDo(data.inProgress,item)" *ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">
@@ -59,12 +63,14 @@
                 <div class="example-box" *ngFor="let item of data.done" cdkDrag>
                     <div class="container">
                         <div class="row order-todos">
-                            <img class="icons" alt="done-icon" src="assets/svg/like.svg">
+                            <img id="done-icon" class="icons" alt="done-icon" src="assets/svg/like.svg">
                             {{item.todo}}
+                            <div class="operation-icons">
                             <img class="icons" (click)="item.canEditCode = true" src="assets/svg/edit-icon.svg"
                                 alt="edit-icon">
                             <img (click)="removeToDo(data.done,item)" alt="remove-icon" class="icons"
                                 src="assets/svg/remove.svg">
+                            </div>
                         </div>
                         <ng-template [ngIf]=item.canEditCode>
                             <input class="edit-input" (keyup.enter)="editToDo(data.done,item)"*ngIf="item.canEditCode" [(ngModel)]="item.todo" type="text">

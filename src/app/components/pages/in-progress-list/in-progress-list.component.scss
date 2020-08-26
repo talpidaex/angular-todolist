@@ -15,10 +15,15 @@ nav {
             } 
         }
         td {
+            display: block;
             justify-content: space-evenly;
                 img {
                     margin : 0 20px;
                 }
+        }
+        .icon-group {
+            margin-right: 10rem;
+            float: right;
         }
         .icons {
             cursor: pointer;
@@ -26,6 +31,7 @@ nav {
             width : 0 auto;
           }
              .edit-row {
+                 display: inline;
               justify-content: space-around;
               input {
                   color: #494D5F;
@@ -36,6 +42,7 @@ nav {
                   
               }
               .icon-group {
+                  cursor: pointer;
                   position: relative;
                   right: 90px;
                 }

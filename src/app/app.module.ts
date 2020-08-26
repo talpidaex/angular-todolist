@@ -54,7 +54,7 @@ import { CompletedListComponent } from './components/pages/completed-list/comple
     MatDividerModule
   ],
   providers: [
-    {provide : 'apiUrl' ,useValue :"https://kafein-todolist.herokuapp.com/todo"},
+    {provide : 'apiUrl' ,useValue :"http://localhost:3001/todo"},
     LoginGuard,AccountService,AlertService],
   bootstrap: [AppComponent]
 })
