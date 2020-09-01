@@ -60,7 +60,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatDividerModule
   ],
   providers: [
-    { provide: 'apiUrl', useValue: "http://localhost:1234/todo" },
+    { provide: 'apiUrl', useValue: "https://kafein-todolist.herokuapp.com/todo" },
     LoginGuard, AccountService, AlertService,ApiService],
   bootstrap: [AppComponent]
 })
