@@ -10,9 +10,9 @@ import { AlertService } from '../../../services/alert.service';
 export class LogoRoutesComponent implements OnInit {
   title = "Kafein Todo"
   constructor(
-    private accountService: AccountService,
-    private router: Router,
-    private alertService: AlertService
+    public accountService: AccountService,
+    public router: Router,
+    public alertService: AlertService
   ) { }
 
   ngOnInit(): void {

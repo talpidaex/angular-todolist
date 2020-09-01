@@ -20,11 +20,11 @@ export class LoginComponent implements OnInit {
 
   login(form:NgForm){
 
-      this.accountService.login(this.user);
-      if(this.accountService.isLoggedIn()){
-          this.router.navigate(["dashboard"]);
-      }else {
-        this.alertService.errorMessage("Giriş Başarısız,tekrar deneyiniz!");
-      }
+      this.accountService.login(this.user); 
+      // if(this.accountService.isLoggedIn()){
+      //     this.router.navigate(["dashboard"]);
+      // }else {
+      //   this.alertService.errorMessage("Giriş Başarısız,tekrar deneyiniz!");
+      // }
   }
 }

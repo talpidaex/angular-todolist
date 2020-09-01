@@ -9,24 +9,37 @@ import { ApiService } from '../../../services/api.service';
 })
 export class InputComponent implements OnInit {
 
-  constructor(private apiService : ApiService,
-    private todoComponent : TodoComponent) { }
+  constructor(public apiService: ApiService,
+    public todoComponent: TodoComponent) { }
 
   ngOnInit(): void {
   }
 
 
   addToDo(input) {
+
     const test = {
       todo: input.value
     }
-    this.apiService.addToDo(test).subscribe(res => {   
+    const userEmail = localStorage.getItem("isLogged");
+    console.log(userEmail);
+    
+    this.apiService.addUserToDo(userEmail, test).subscribe(res => {
       console.log(res);
       this.todoComponent.getAllToDo();
       input.value = '';
-    },(err)=>{
+    }, (err) => {
       console.log(err);
     });
-  }
+    //   this.apiService.addToDo(test).subscribe(res => {   
+    //     console.log(res);
+    //     this.todoComponent.getAllToDo();
+    //     input.value = '';
+    //   },(err)=>{
+    //     console.log(err);
+    //   });
+    // }
 
+    }
+  
 }

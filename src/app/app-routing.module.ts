@@ -6,6 +6,7 @@ import { LoginGuard } from './components/login/login.guard';
 import { TodoListComponent } from './components/pages/todo-list/todo-list.component';
 import { InProgressListComponent } from './components/pages/in-progress-list/in-progress-list.component';
 import { CompletedListComponent } from './components/pages/completed-list/completed-list.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
   {path : "dashboard", component:TodoComponent,canActivate:[LoginGuard]},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path : "in-progress-list", component:InProgressListComponent,canActivate:[LoginGuard]},
   {path : "completed-list", component:CompletedListComponent,canActivate:[LoginGuard]},
   {path :'login',component:LoginComponent},
+  {path: 'sign-up',component:SignUpComponent},
   {path: "",redirectTo:"dashboard",pathMatch:"full"},
   {path : "**" ,redirectTo:"todo"},
 

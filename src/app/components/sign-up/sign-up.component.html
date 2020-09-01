@@ -1,0 +1,45 @@
+<div class="container page-content">
+    <div class="row">
+        <div class="col-md-6 col-right"></div>
+        <div class="col-md-6 col-left">
+            <div class="col header">
+                <img src="assets/svg/contract.svg" alt="img-icon">
+                <h1 title="title">Kafein TodoList</h1>
+                <p title="login">Kayıt Ol</p>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="body">
+                <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+                    <p>
+                        <mat-form-field apperance="outline">
+                            <mat-label>Email adresinizi giriniz</mat-label>
+                            <input matInput formControlName="email" type="email"
+                                placeholder="email adresinizi giriniz!">
+                            <mat-icon matSuffix>mail</mat-icon>
+                        </mat-form-field>
+                    </p>
+                    <mat-error class="alert alert-warning" *ngIf="signUpForm.get('email').errors?.pattern">
+                        Geçerli bir e-posta adresi giriniz!</mat-error>
+
+                    <p>
+                        <mat-form-field apperance="outline">
+                            <mat-label>Parola</mat-label>
+                            <input matInput [type]="hide ? 'password': 'text'" formControlName="password" type="password" placeholder="Şifre giriniz!"
+                                required minlength="8">
+                            <mat-icon matSuffix>vpn_key</mat-icon>
+                            <span mat-icon-button  matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                                [attr.aria-pressed]="hide">
+                                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </span>
+                        </mat-form-field>
+                    </p>
+                    <mat-error class="alert alert-info" *ngIf="signUpForm.get('password').errors?.minlength">
+                        Parola en az 8 haneli olmalıdır!</mat-error>
+                        <br><br>
+                    <button [disabled]="!signUpForm.valid" mat-raised-button color="primary"
+                        type="submit">Kayıt</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

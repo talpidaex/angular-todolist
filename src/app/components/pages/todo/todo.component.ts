@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { ApiService } from '../../../services/api.service';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-todo',
@@ -9,10 +10,9 @@ import { ApiService } from '../../../services/api.service';
   providers: [ApiService]
 })
 export class TodoComponent implements OnInit {
-  data  = {pendings:[],inProgress:[],done:[]};
+  data = { pendings: [], inProgress: [], done: [] };
 
-  constructor(private apiService: ApiService) { }
-  //data = {pendings:[],inProgress:[],done:[]}
+  constructor(private apiService: ApiService,private alertService : AlertService) { }
   ngOnInit(): void {
     this.getAllToDo();
   }
@@ -31,58 +31,45 @@ export class TodoComponent implements OnInit {
   }
 
   getAllToDo() {
-    this.apiService.getToDo().subscribe((res:any) => {
-          //this.data = response
-         Object.keys(res).forEach((key)=>{
-            this.data[key] = res[key];
-            console.log(this.data[key]); 
-         });
-    },(err)=>{
-        console.log(err);
-        
+    const userEmail = localStorage.getItem("isLogged");
+    this.apiService.getUserToDo(userEmail).subscribe((res) => {
+      Object.keys(res).forEach((key) => {
+        this.data[key] = res[key];
+        console.log(this.data[key]);
+      })
     })
   }
   updateToDo() {
-
-    this.apiService.updateToDo(this.data).subscribe(res => {
-      console.log("Update Başarılı!");
-      console.log(this.data);
-
-    }, err => {
+    const userEmail = localStorage.getItem("isLogged");
+    this.apiService.updateUserToDo(userEmail, this.data).subscribe(res => {
+      console.log("Update başarılı!");
+    }, (err) => {
       console.log(err);
-
-    })
+    });
   }
-  removeToDo(arr,obj){
+  removeToDo(arr, obj) {
     /* önce array indexini bul ve 1 adet öğe cıkart => splice */
+    const userEmail = localStorage.getItem("isLogged");
     let index = arr.indexOf(obj);
-    arr.splice(index,1);
-    this.apiService.updateToDo(this.data).subscribe(res => {
-    console.log("Remove Başarılı!");
-   }, err => {
-      console.log(err);
-    })
- }
+    arr.splice(index, 1);
+     this.apiService.updateUserToDo(userEmail,this.data).subscribe(res => {
+      console.log("Remove Başarılı!");
+      }, err => {
+       console.log(err);
+     })
+  }
 
- editToDo(arr,obj){
-      const editText  = {
-        todo : obj.todo
-      }
+  editToDo(arr, obj) {
+    const userEmail = localStorage.getItem("isLogged");
+    const editText = {
+      todo: obj.todo
+    }
     var foundIndex = arr.findIndex(x => x.todo == obj.todo);
     arr[foundIndex] = editText;
-    this.apiService.updateToDo(this.data).subscribe(res =>{
-        console.log("Edit Başarılı!");
-     },(err)=> {
-        console.log(err);
-     })
-
- }
- onEnter(value: string) { 
-      alert(value)
+    this.apiService.updateUserToDo(userEmail,this.data).subscribe(res => {
+      console.log("Edit Başarılı!");
+    }, (err) => {
+      console.log(err);
+    })
   }
- report(){
-   console.log(this.data.done);
-   
- }
-
 }
