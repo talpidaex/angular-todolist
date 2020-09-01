@@ -41,7 +41,7 @@ export class AlertService {
             'Kayıt başarıyla silindi,yönlendiriliyorsunuz.',
             'success'
           ).then(()=>{
-              window.location.href="/login";
+              window.location.href="/";
           })
         },(err)=>{
           console.log(err);
